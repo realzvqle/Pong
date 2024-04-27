@@ -1,7 +1,5 @@
 #include "headers/fallback.h"
 #include <errhandlingapi.h>
-#include <processthreadsapi.h>
-#include <winnt.h>
 
 
 
@@ -17,3 +15,4 @@ static LONG WINAPI crash_handler(EXCEPTION_POINTERS* crashInfo){
 void crash_checker(){
     SetUnhandledExceptionFilter(crash_handler);
 }
+
