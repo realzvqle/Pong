@@ -19,7 +19,7 @@ typedef struct _window{
 
 
 typedef struct _state{
-    window window;
+    short currentScene;
 } state;
 
 

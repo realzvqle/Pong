@@ -1,8 +1,8 @@
 #include "headers/window.h"
 #include "headers/fallback.h"
+#include "headers/scenemngr.h"
 #include <heapapi.h>
 #include <winnt.h>
-
 
 
 
@@ -19,13 +19,17 @@ void create_window(){
     window* win = initialize_window(1600, 900, "Pong");
     SetTraceLogLevel(LOG_FATAL);
     InitWindow(win->x, win->y, win->title);
+    state* st = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(state));
+    st->currentScene = 0;
     while(!WindowShouldClose()){
         BeginDrawing();
+        scene_manager(st);
         ClearBackground(BLACK);
-        DrawFPS(10, 10);
         EndDrawing();
     }
     CloseWindow();
     HeapFree(GetProcessHeap(), 0, win);
+    HeapFree(GetProcessHeap(), 0, st);
+
     ExitProcess(0);
 }
