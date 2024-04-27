@@ -5,6 +5,7 @@
 #include <winnt.h>
 
 
+state* st = NULL; 
 
 static window* initialize_window(int x, int y, char* title){
     window* win = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY , sizeof(window));
@@ -19,7 +20,7 @@ void create_window(){
     window* win = initialize_window(1600, 900, "Pong");
     SetTraceLogLevel(LOG_FATAL);
     InitWindow(win->x, win->y, win->title);
-    state* st = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(state));
+    st = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(state));
     st->currentScene = 0;
     while(!WindowShouldClose()){
         BeginDrawing();

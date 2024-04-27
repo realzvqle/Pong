@@ -4,18 +4,15 @@
 #define _AMD64_
 #define TODO(x)
 
-#include "raylib/raylib.h"
 
+
+
+
+#include "raylib/raylib.h"
 
 #include <processthreadsapi.h>
 #include <heapapi.h>
 
-
-typedef struct _window{
-    int x;
-    int y;
-    char* title;
-} window;
 
 
 typedef struct _state{

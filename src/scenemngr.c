@@ -15,7 +15,8 @@ void scene_manager(state* state){
             DrawText("Scene 2", 10, 10, 30, RED);
             break;
         default:
-            DrawText("Invalid Scene, idk how you did this but nice", 10, 10, 20, RED);
+            int *x = 0;
+            *x = 5;
             break;
     }
 }
