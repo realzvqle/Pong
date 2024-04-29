@@ -1,5 +1,5 @@
 #include "headers/scenemngr.h"
-
+#include "headers/mainScene.h"
 
 
 
@@ -8,8 +8,7 @@
 void scene_manager(state* state){
     switch(state->currentScene){
         case 0:
-            DrawText("Scene 1", 10, 10, 30, BLUE);
-            if(IsKeyPressed(KEY_W)) state->currentScene = 2;
+            game_scene(state);
             break;
         case 1:
             DrawText("Scene 2", 10, 10, 30, RED);

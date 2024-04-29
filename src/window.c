@@ -9,7 +9,9 @@ state* st = NULL;
 
 static window* initialize_window(int x, int y, char* title){
     window* win = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY , sizeof(window));
-    win->x = 1600; win->y = 900; win->title = "Pong";
+    win->x = 1600; 
+    win->y = 900; 
+    win->title = "Pong";
     return win;
 }
 

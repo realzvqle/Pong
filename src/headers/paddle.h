@@ -4,5 +4,17 @@
 
 #include "main.h"
 
+typedef struct _paddle{
+    float x;
+    float y;
+    int sizeX;
+    int sizeY;
+    Color color;
+} paddle;
+
+paddle* setup_left_paddle();
+paddle* setup_right_paddle();
+
+
 
 #endif
