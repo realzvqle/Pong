@@ -3,7 +3,6 @@
 #include "headers/gravity.h"
 #include "headers/collision.h"
 #include "headers/tools.h"
-#include <minwindef.h>
 
 void game_scene(state* state){
     char str[100];
@@ -11,7 +10,7 @@ void game_scene(state* state){
     static gameObjects* obj;
     if(init == FALSE){
         if(obj == NULL){
-            obj = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(gameObjects));
+            obj = alloc_mem(sizeof(gameObjects));
         }
         obj->ball = setup_ball();
         obj->leftPaddle = setup_left_paddle();
@@ -32,9 +31,9 @@ void game_scene(state* state){
     } 
     if(obj->ball->x >= 1600){
         state->leftScore++;
-        HeapFree(GetProcessHeap(), 0, obj->ball);
-        HeapFree(GetProcessHeap(), 0, obj->leftPaddle);
-        HeapFree(GetProcessHeap(), 0, obj->rightPaddle);
+        free_mem(obj->ball);
+        free_mem(obj->leftPaddle);
+        free_mem(obj->rightPaddle);
         init = FALSE;
     } 
     DrawText(i_to_a(state->leftScore, str), GetScreenWidth() / 2 - 50, GetScreenHeight() / 2, 50, WHITE);

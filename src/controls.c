@@ -1,5 +1,5 @@
 #include "headers/controls.h"
-
+#include "headers/tools.h"
 
 
 void initialize_controls(gameObjects* obj){
@@ -22,7 +22,7 @@ void initialize_controls(gameObjects* obj){
     }
     // DEBUGGING CODE
     if(IsKeyDown(KEY_R)){
-        HeapFree(GetProcessHeap(), 0, obj->ball);
+        free_mem(obj->ball);
         obj->ball = setup_ball();
     }
     // if(IsKeyPressed(KEY_H)){

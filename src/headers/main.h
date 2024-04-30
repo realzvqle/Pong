@@ -10,7 +10,8 @@
 
 #include "raylib/raylib.h"
 #include <processthreadsapi.h>
-#include <heapapi.h>
+#include <memoryapi.h>
+
 
 
 

@@ -9,7 +9,7 @@ char* ull_to_a(unsigned long long num, char* str);
 char* str_cat(char* destination, const char* source);
 float sqrtf(float x);
 float v2dDistance(Vector2 v1, Vector2 v2);
-
-
+void* alloc_mem(size_t size);
+BOOL free_mem(void* memory);
 
 #endif

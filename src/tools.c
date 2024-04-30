@@ -1,4 +1,5 @@
 #include "headers/tools.h"
+#include <winnt.h>
 
 
 
@@ -99,4 +100,12 @@ float v2dDistance(Vector2 v1, Vector2 v2)
     float result = sqrtf((v1.x - v2.x)*(v1.x - v2.x) + (v1.y - v2.y)*(v1.y - v2.y));
 
     return result;
+}
+
+void* alloc_mem(size_t size) {
+    return VirtualAlloc(NULL, size, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+}
+
+BOOL free_mem(void* memory) {
+    return VirtualFree(memory, 0, MEM_RELEASE);
 }

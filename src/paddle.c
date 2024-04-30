@@ -1,11 +1,10 @@
 #include "headers/paddle.h"
-#include <heapapi.h>
-#include <winnt.h>
+#include "headers/tools.h"
 
 
 
 paddle* setup_left_paddle(){
-    paddle* pddle = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(paddle));
+    paddle* pddle = alloc_mem(sizeof(paddle));
     pddle->x = 0; 
     pddle->y = ((float)GetScreenHeight() / 2) - 70; 
     pddle->sizeX = 20; 
@@ -16,7 +15,7 @@ paddle* setup_left_paddle(){
 
 
 paddle* setup_right_paddle(){
-    paddle* pddle = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(paddle));
+    paddle* pddle = alloc_mem(sizeof(paddle));
     pddle->x = 1580; 
     pddle->y = ((float)GetScreenHeight() / 2) - 70; 
     pddle->sizeX = 20; 
