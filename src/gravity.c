@@ -1,5 +1,4 @@
 #include "headers/gravity.h"
-#include "headers/tools.h"
 #include <winnt.h>
 
 
@@ -8,17 +7,26 @@ void add_gravity(ball* ball){
     // debug
     //char str[100];
     //DrawText(i_to_a(ball->state, str), 10, 10, 40, RED);
-    if(ball->y <= 0 || ball->y >= 900){
-         ball->x = (float)GetScreenWidth() / 2;
-         ball->y = (float)GetScreenHeight() / 2;
-         ball->radius = 10;
-         ball->color = WHITE;
-         ball->state = GetRandomValue(0, 3);
-         ball->veloX = 500.0f;
-         ball->veloY = 200.0f;
-         ball->gravity = 9.8;
-        return;
-    }
+    // if(ball->y <= 0 || ball->y >= 900){
+    //      ball->x = (float)GetScreenWidth() / 2;
+    //      ball->y = (float)GetScreenHeight() / 2;
+    //      ball->radius = 10;
+    //      ball->color = WHITE;
+    //      ball->state = GetRandomValue(0, 3);
+    //      ball->veloX = 500.0f;
+    //      ball->veloY = 200.0f;
+    //      ball->gravity = 9.8;
+    //     return;
+    // }
+ if(ball->y <= 0){
+    ball->y += 0 + 400 * GetFrameTime(); 
+    ball->veloY = -ball->veloY; 
+}
+if(ball->y >= GetScreenHeight()){
+    ball->y -= GetScreenHeight() + 400 * GetFrameTime(); 
+    ball->veloY = -ball->veloY;
+}
+
     switch(ball->state){
         case TOPLEFT:
             ball->y += ball->gravity * GetFrameTime();

@@ -20,6 +20,7 @@ void create_window(){
     crash_checker();
     window* win = initialize_window(1600, 900, "Pong");
     SetTraceLogLevel(LOG_FATAL);
+    //SetConfigFlags(FLAG_WINDOW_HIGHDPI);
     InitWindow(win->x, win->y, win->title);
     SetExitKey(KEY_P);
 
