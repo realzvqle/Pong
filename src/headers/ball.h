@@ -15,6 +15,9 @@ typedef struct _ball{
     int radius;
     Color color;
     short state;
+    float veloX;
+    float veloY;
+    float gravity;
 } ball;
 
 

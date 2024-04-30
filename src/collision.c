@@ -1,23 +1,23 @@
 #include "headers/collision.h"
-#include "headers/tools.h"
 
 
 
 void check_collision(gameObjects* obj){
-    if(v2dDistance((Vector2){obj->rightPaddle->x, obj->rightPaddle->y}, (Vector2){obj->ball->x, obj->rightPaddle->y}) <= 70 
-    && obj->rightPaddle->y > ((float)GetScreenHeight() / 2)){
-        obj->ball->state = BOTTOMLEFT;
+    Vector2 ballCenter = {obj->ball->x, obj->ball->y};
+    Rectangle rightPaddleRec = { obj->rightPaddle->x, obj->rightPaddle->y, obj->rightPaddle->sizeX, obj->rightPaddle->sizeY };
+    if(CheckCollisionCircleRec(ballCenter, obj->ball->radius, rightPaddleRec)){
+        if(obj->rightPaddle->y > ((float)GetScreenHeight() / 2)){
+            obj->ball->state = BOTTOMRIGHT;
+        } else {
+            obj->ball->state = TOPLEFT;
+        }
     }
-    if(v2dDistance((Vector2){obj->rightPaddle->x, obj->rightPaddle->y}, (Vector2){obj->ball->x, obj->rightPaddle->y}) <= 70 
-    && obj->rightPaddle->y < ((float)GetScreenHeight() / 2)){
-        obj->ball->state = TOPLEFT;
-    }
-    if(v2dDistance((Vector2){obj->leftPaddle->x, obj->leftPaddle->y}, (Vector2){obj->ball->x, obj->leftPaddle->y}) <= 70 
-    && obj->rightPaddle->y > ((float)GetScreenHeight() / 2)){
-        obj->ball->state = TOPRIGHT;
-    }
-    if(v2dDistance((Vector2){obj->leftPaddle->x, obj->leftPaddle->y}, (Vector2){obj->ball->x, obj->leftPaddle->y}) <= 70 
-    && obj->rightPaddle->y < ((float)GetScreenHeight() / 2)){
-        obj->ball->state = BOTTOMLEFT;
+    Rectangle leftPaddleRec = { obj->leftPaddle->x, obj->leftPaddle->y, obj->leftPaddle->sizeX, obj->leftPaddle->sizeY };
+    if(CheckCollisionCircleRec(ballCenter, obj->ball->radius, leftPaddleRec)){
+        if(obj->leftPaddle->y > ((float)GetScreenHeight() / 2)){
+            obj->ball->state = TOPRIGHT;
+        } else {
+            obj->ball->state = BOTTOMLEFT;
+        }
     }
 }

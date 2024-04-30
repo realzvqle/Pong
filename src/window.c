@@ -22,8 +22,11 @@ void create_window(){
     window* win = initialize_window(1600, 900, "Pong");
     SetTraceLogLevel(LOG_FATAL);
     InitWindow(win->x, win->y, win->title);
+    SetExitKey(KEY_P);
     st = HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, sizeof(state));
-    st->currentScene = 0;
+    st->currentScene = 1;
+    st->rightScore = 0;
+    st->leftScore = 0;
     while(!WindowShouldClose()){
         BeginDrawing();
         scene_manager(st);

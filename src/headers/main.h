@@ -16,6 +16,8 @@
 
 typedef struct _state{
     short currentScene;
+    short leftScore;
+    short rightScore;
 } state;
 
 

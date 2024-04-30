@@ -21,10 +21,10 @@ void initialize_controls(gameObjects* obj){
         obj->rightPaddle->y+=800.0f*GetFrameTime();
     }
     // DEBUGGING CODE
-    // if(IsKeyDown(KEY_R)){
-    //     HeapFree(GetProcessHeap(), 0, obj->ball);
-    //     obj->ball = setup_ball();
-    // }
+    if(IsKeyDown(KEY_R)){
+        HeapFree(GetProcessHeap(), 0, obj->ball);
+        obj->ball = setup_ball();
+    }
     // if(IsKeyPressed(KEY_H)){
     //     if (obj->ball->state <= 3) obj->ball->state++;
     //     if(obj->ball->state > 3){
